@@ -15,11 +15,14 @@
 # [START log_sender_handler]
 import logging
 
-from google.appengine.ext.webapp.mail_handlers import InboundMailHandler
+#from google.appengine.ext.webapp.mail_handlers import InboundMailHandler
 import webapp2
 
 
-class LogSenderHandler(InboundMailHandler):
+class LogSenderHandler(webapp2.RequestHandler)r):
+    def get(self):
+        self.response.write("hello buns")
+        
     def receive(self, mail_message):
         logging.info("Received a message from: " + mail_message.sender)
         # [END log_sender_handler]
