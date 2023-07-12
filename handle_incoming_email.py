@@ -19,7 +19,7 @@ import logging
 import webapp2
 
 
-class LogSenderHandler(webapp2.RequestHandler)r):
+class LogSenderHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write("hello buns")
         
@@ -41,5 +41,5 @@ class LogSenderHandler(webapp2.RequestHandler)r):
 
 
 # [START app]
-app = webapp2.WSGIApplication([LogSenderHandler.mapping()], debug=True)
+app = webapp2.WSGIApplication([('/',LogSenderHandler)], debug=True)
 # [END app]
